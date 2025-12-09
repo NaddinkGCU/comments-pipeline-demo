@@ -23,7 +23,10 @@ jobs:
           password: ${{ secrets.GHCR_PAT }}
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.actor }}/comments-pipeline-demo:latest .
+          ACTOR=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/$ACTOR/comments-pipeline-demo:latest .
+
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.actor }}/comments-pipeline-demo:latest
+          ACTOR=$(echo "${{ github.actor }}" | tr '[:upper:]' '[:lower:]')
+          docker push ghcr.io/$ACTOR/comments-pipeline-demo:latest
