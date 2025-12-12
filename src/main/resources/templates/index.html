@@ -8,6 +8,13 @@
 <div class="container">
   <h1>Welcome to the comments application!</h1>
   <!-- table of comments-->
+   <form th:action="@{/search}" method="post">
+      <div class="mb-3">
+        <label for="searchTerm" class="form-label">Search Comments</label>
+        <input type="text" class="form-control" id="searchTerm" name="searchTerm" required>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
    <table class="table">
     <thead>
       <tr> 
@@ -40,6 +47,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Add Comment</button>
     </form>
+    
  
 
 </body>

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.shadsluiter.comments.data.CommentsDAO;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class MainController {
@@ -29,5 +31,12 @@ public class MainController {
         // PRG pattern: redirect so refresh doesn’t resubmit the form
         return "redirect:/";
     }
+
+    @PostMapping("/search")
+    public String search(Model model, String searchTerm) {
+        model.addAttribute("comments", commentsDAO.searchForComments(searchTerm));
+        return "index";
+    }
+    
  
 }
