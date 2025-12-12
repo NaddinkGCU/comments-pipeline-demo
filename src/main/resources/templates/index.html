@@ -13,7 +13,8 @@
       <tr> 
         <th scope="col">ID</th>
         <th scope="col">Content</th>
-        <th scope="col">Author</th> 
+        <th scope="col">Author</th>
+        <th scope="col">Created At</th> 
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td th:text="${comment.id}">1</td>  
         <td th:text="${comment.content}">Sample comment content</td>  
         <td th:text="${comment.author}">Author Name</td>  
+        <td th:text="${comment.createdAt}">Created time</td>  
       </tr>
     </tbody>
 
